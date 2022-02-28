@@ -1,0 +1,38 @@
+{
+  "name": "differenzo",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint:fix": "eslint ./src --ext .jsx,.js --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier --write \"./**/*.{js,jsx,css,md,json}\" ",
+    "lint": "yarn lint:format && yarn lint:fix ",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^1.0.7",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.2.0",
+    "prettier": "^2.5.1",
+    "vite": "^2.7.2",
+    "vite-plugin-windicss": "^1.6.3",
+    "windicss": "^3.4.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint --cache --fix",
+    "*.{css,md,json}": "prettier --write"
+  }
+}

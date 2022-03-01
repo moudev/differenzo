@@ -1,0 +1,12 @@
+{
+    "plugins": [
+        "mocha",
+        "chai-expect"
+    ],
+    "extends": ["eslint:recommended", "plugin:mocha/recommended"],
+    "env": {
+        "node": true,
+        "amd": true,
+        "mocha": true
+    }
+}

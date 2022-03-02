@@ -1,5 +1,5 @@
 {
-  "name": "myers-diff",
+  "name": "@moudev/myers-diff",
   "author": "Jamie Peabody",
   "version": "2.0.1",
   "description": "Implementation of the longest common subsequence (diff) algorithm.",
@@ -17,12 +17,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wickedest/myers-diff"
+    "url": "https://github.com/moudev/differenzo"
   },
   "bugs": {
-    "url": "https://github.com/wickedest/myers-diff/issues"
+    "url": "https://github.com/moudev/differenzo/issues"
   },
-  "homepage": "https://github.com/wickedest/myers-diff",
+  "homepage": "https://github.com/moudev/differenzo",
   "dependencies": {},
   "devDependencies": {
     "chai": "^4.2.0",

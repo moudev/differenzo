@@ -1,3 +1,7 @@
+Fork of: https://github.com/wickedest/myers-diff
+
+Modified to expose more classes.
+
 # myers-diff
 
 A JavaScript test differentiation implementation based on [An O(ND) Difference Algorithm and Its Variations (1986)](www.xmailserver.org/diff2.pdf).  It is a lightweight, low-level, no-frills library that can be used to build bulkier viewers.

@@ -355,4 +355,4 @@ class Myers {
 	}
 }
 
-module.exports = Myers;
+module.exports = { Myers, Encoder };

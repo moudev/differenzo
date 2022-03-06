@@ -2,8 +2,8 @@ const { diff } = require('./myers');
 const formats = require('./formats');
 const changed = require('./changed');
 
-module.exports = {
-	diff,
-	formats,
-	changed
-};
+// to use destructuring in browser version
+// https://rollupjs.org/guide/en/#outputexports
+exports.diff = diff
+exports.formats = formats
+exports.changed = changed

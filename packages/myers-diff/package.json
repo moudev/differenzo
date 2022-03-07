@@ -1,0 +1,60 @@
+{
+  "name": "@moudev/myers-diff",
+  "author": "Jamie Peabody",
+  "version": "2.0.1",
+  "description": "Implementation of the longest common subsequence (diff) algorithm.",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "keywords": [
+    "diff",
+    "compare",
+    "patch"
+  ],
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moudev/differenzo"
+  },
+  "bugs": {
+    "url": "https://github.com/moudev/differenzo/issues"
+  },
+  "homepage": "https://github.com/moudev/differenzo",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^21.0.2",
+    "chai": "^4.2.0",
+    "eslint": "^7.11.0",
+    "eslint-plugin-chai-expect": "^2.2.0",
+    "eslint-plugin-mocha": "^8.0.0",
+    "mocha": "^8.1.3",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.69.1"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "nyc": {
+    "all": true,
+    "check-coverage": true,
+    "branches": 100,
+    "lines": 100,
+    "functions": 100,
+    "statements": 100,
+    "reporter": [
+      "lcov"
+    ]
+  },
+  "scripts": {
+    "dev": "rimraf dist && rollup -c -w",
+    "build": "rimraf dist && rollup -c",
+    "test": "nyc --reporter=lcov --reporter=text-summary mocha --recursive",
+    "test:watch": "mocha --recursive --watch",
+    "test:nocoverage": "mocha --recursive",
+    "lint": "eslint src test"
+  }
+}

@@ -1,6 +1,6 @@
 # https://github.com/vitejs/vite/blob/main/netlify.toml#L3
 [build.environment]
-  NODE_VERSION = "16"
+  NODE_VERSION = "14"
   NPM_FLAGS = "--version" # prevent Netlify npm install
 [build]
   publish = "dist/"

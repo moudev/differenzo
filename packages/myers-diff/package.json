@@ -1,10 +1,10 @@
 {
   "name": "@moudev/myers-diff",
   "author": "Jamie Peabody",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "description": "Implementation of the longest common subsequence (diff) algorithm.",
   "license": "Apache-2.0",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "keywords": [
     "diff",
@@ -12,9 +12,7 @@
     "patch"
   ],
   "files": [
-    "src",
-    "README.md",
-    "LICENSE"
+    "dist"
   ],
   "repository": {
     "type": "git",
@@ -55,6 +53,7 @@
     "test": "nyc --reporter=lcov --reporter=text-summary mocha --recursive",
     "test:watch": "mocha --recursive --watch",
     "test:nocoverage": "mocha --recursive",
-    "lint": "eslint src test"
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run build"
   }
 }

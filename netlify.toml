@@ -1,3 +1,7 @@
+# https://github.com/vitejs/vite/blob/main/netlify.toml#L3
+[build.environment]
+  NODE_VERSION = "16"
+  NPM_FLAGS = "--version" # prevent Netlify npm install
 [build]
   publish = "dist/"
-  command = "pnpm build || ( npm install pnpm && pnpm build )"
+  command = "npx pnpm i --store=node_modules/.pnpm-store && npx pnpm build"

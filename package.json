@@ -36,5 +36,11 @@
   "lint-staged": {
     "*.{js,jsx}": "eslint --cache --fix",
     "*.{css,md,json}": "prettier --write"
+  },
+  "packageManager": "pnpm@6.32.2",
+  "pnpm": {
+    "overrides": {
+      "@moudev/myers-diff": "workspace:*"
+    }
   }
 }

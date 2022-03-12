@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build-myers && vite build",
+    "build-myers": "cd packages/myers-diff && npm run build",
     "preview": "vite preview",
     "lint:fix": "eslint ./src --ext .jsx,.js --fix --ignore-path ./.gitignore",
     "lint:format": "prettier --write \"./**/*.{js,jsx,css,md,json}\" ",

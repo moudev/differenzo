@@ -11,7 +11,7 @@ export default {
       exports: 'named',
     },
     {
-      file: './dist/index.js',
+      file: './dist/index.cjs.js',
       format: 'cjs',
       exports: 'named',
     },

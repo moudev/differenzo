@@ -48,13 +48,13 @@ function Card() {
       <div className="grid gap-4 lg:content-start">
         <h3 className="text-$color-secondary text-center">Original</h3>
         <textarea
-          className="p-2 rounded-lg min-h-60 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
+          className="p-2 rounded-lg min-h-48 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
           onChange={handleInput}
           ref={originalRef}
         />
         <h3 className="text-$color-secondary text-center">Modified</h3>
         <textarea
-          className="p-2 rounded-lg min-h-60 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
+          className="p-2 rounded-lg min-h-48 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
           onChange={handleInput}
           ref={modifiedRef}
         />

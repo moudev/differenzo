@@ -44,62 +44,54 @@ function Card() {
   // https://medium.com/nerd-for-tech/debounce-your-search-react-input-optimization-fd270a8042b
   const handleInput = _debounce(compareTexts, 500)
   return (
-    <div className="border border-dashed border-purple-400 p-4 rounded-lg grid">
-      <div className="grid gap-4 order-1">
-        <h3 className="text-[#c5c5ce]">Original</h3>
+    <div className="border border-dashed border-purple-400 p-4 pb-6 rounded-lg grid lg:(grid-cols-2 gap-x-12 pb-6)">
+      <div className="grid gap-4 lg:content-start">
+        <h3 className="text-$color-secondary text-center">Original</h3>
         <textarea
-          className="p-2 rounded-lg h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4"
+          className="p-2 rounded-lg min-h-60 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
           onChange={handleInput}
           ref={originalRef}
         />
-        <h3 className="text-[#c5c5ce]">Modified</h3>
+        <h3 className="text-$color-secondary text-center">Modified</h3>
         <textarea
-          className="p-2 rounded-lg h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4"
+          className="p-2 rounded-lg min-h-60 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
           onChange={handleInput}
           ref={modifiedRef}
         />
       </div>
       {results.length === 2 && (
-        <div className="grid pt-0 order-3">
-          <h3>Results</h3>
-          <div className="mb-8 text-left">
-            <div className="bg-red-200 p-2 rounded-lg flex flex-wrap mb-1">
-              {results[0]._parts.map((m, index) => (
-                <span
-                  key={`${m.text}-${m.pos}`}
-                  className={`mr-2 p-1 rounded-md ${
-                    results[0]._modified[`${index}`] ? 'bg-red-300' : 'no'
-                  }`}
-                >
-                  {m.text}
-                </span>
-              ))}
-            </div>
-            <div className="bg-green-200 p-2 rounded-lg flex flex-wrap mt-4 ">
-              {results[1]._parts.map((m, index) => (
-                <span
-                  key={`${m.text}-${m.pos}`}
-                  className={`mr-2 p-1 rounded-md ${
-                    results[1]._modified[`${index}`] ? 'bg-green-300' : 'no'
-                  }`}
-                >
-                  {m.text}
-                </span>
-              ))}
-            </div>
+        <div className="grid gap-y-4 mt-12 pb-2 md:pb-0 lg:(content-start mt-0)">
+          <h3 className="text-$color-secondary text-center hidden lg:inline-block ">
+            Differences
+          </h3>
+          <div className="bg-red-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
+            {results[0]._parts.map((m, index) => (
+              <span
+                key={`${m.text}-${m.pos}`}
+                className={`mr-2 p-1 rounded-md ${
+                  results[0]._modified[`${index}`] ? 'bg-red-300' : ''
+                }`}
+              >
+                {m.text}
+              </span>
+            ))}
           </div>
+          <div className="bg-green-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
+            {results[1]._parts.map((m, index) => (
+              <span
+                key={`${m.text}-${m.pos}`}
+                className={`mr-2 p-1 rounded-md ${
+                  results[1]._modified[`${index}`] ? 'bg-green-300' : ''
+                }`}
+              >
+                {m.text}
+              </span>
+            ))}
+          </div>
+
           <p />
         </div>
       )}
-      <div className="flex justify-end order-2">
-        <button
-          type="button"
-          className="bg-[#ab79d6]  font-semibold rounded-md mt-4 py-2 px-6 place-self-end hover:bg-purple-400 focus:outline-dotted-purple-400 outline-2 outline-offset-4"
-          onClick={compareTexts}
-        >
-          Check
-        </button>
-      </div>
     </div>
   )
 }

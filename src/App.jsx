@@ -56,8 +56,13 @@ function App() {
     <div className="bg-$bg-primary text-$color-primary font-semibold min-h-screen">
       <div className="container mx-auto">
         <div className="px-6 py-8 grid gap-y-16 md:px-8 lg:py-12">
-          {tasks.map((task) => (
-            <Card task={task} key={task.id} handleTask={handleTask} />
+          {tasks.map((task, index) => (
+            <Card
+              open={index === 0 || index === 1}
+              task={task}
+              key={task.id}
+              handleTask={handleTask}
+            />
           ))}
         </div>
       </div>

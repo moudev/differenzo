@@ -74,37 +74,39 @@ function Card({ task, handleTask }) {
           /* value={task?.modified?.fullText ? task.modified.fullText : ''} */
         />
       </div>
-      {task && task.id && (
-        <div className="grid gap-y-4 mt-12 pb-2 md:pb-0 lg:(content-start mt-0)">
-          <h3 className="text-$color-secondary text-center hidden lg:inline-block ">
-            Differences
-          </h3>
-          <div className="bg-red-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
-            {task.original._parts.map((m, index) => (
-              <span
-                key={`${m.text}-${m.pos}`}
-                className={`mr-2 p-1 rounded-md ${
-                  task.original._modified[`${index}`] ? 'bg-red-300' : ''
-                }`}
-              >
-                {m.text}
-              </span>
-            ))}
+      {task &&
+        task.original._parts.length > 0 &&
+        task.modified._parts.length > 0 && (
+          <div className="grid gap-y-4 mt-12 pb-2 md:pb-0 lg:(content-start mt-0)">
+            <h3 className="text-$color-secondary text-center hidden lg:inline-block ">
+              Differences
+            </h3>
+            <div className="bg-red-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
+              {task.original._parts.map((m, index) => (
+                <span
+                  key={`${m.text}-${m.pos}`}
+                  className={`mr-2 p-1 rounded-md ${
+                    task.original._modified[`${index}`] ? 'bg-red-300' : ''
+                  }`}
+                >
+                  {m.text}
+                </span>
+              ))}
+            </div>
+            <div className="bg-green-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
+              {task.modified._parts.map((m, index) => (
+                <span
+                  key={`${m.text}-${m.pos}`}
+                  className={`mr-2 p-1 rounded-md ${
+                    task.modified._modified[`${index}`] ? 'bg-green-300' : ''
+                  }`}
+                >
+                  {m.text}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="bg-green-200 p-2 rounded-lg flex flex-wrap content-start gap-y-3 md:p-3">
-            {task.modified._parts.map((m, index) => (
-              <span
-                key={`${m.text}-${m.pos}`}
-                className={`mr-2 p-1 rounded-md ${
-                  task.modified._modified[`${index}`] ? 'bg-green-300' : ''
-                }`}
-              >
-                {m.text}
-              </span>
-            ))}
-          </div>
-        </div>
-      )}
+        )}
     </div>
   )
 }

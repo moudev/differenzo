@@ -98,6 +98,7 @@ function App() {
               key={quote.id}
               handleQuote={handleQuote}
               deleteQuote={deleteQuote}
+              showDeleteButton={index > 0}
             />
           ))}
         </div>

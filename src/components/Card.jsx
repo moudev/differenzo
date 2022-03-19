@@ -1,13 +1,18 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-underscore-dangle */
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { Myers, Encoder } from '@moudev/myers-diff'
 import _debounce from 'lodash/debounce'
 
-function Card({ quote, open, handleQuote, deleteQuote }) {
+function Card({ quote, open, handleQuote, deleteQuote, showDeleteButton }) {
   const originalRef = useRef()
   const modifiedRef = useRef()
   const encoder = new Encoder()
+
+  useEffect(() => {
+    originalRef.current.value = quote.original.fullText
+    modifiedRef.current.value = quote.modified.fullText
+  }, [])
 
   const compareTexts = () => {
     const { getLongestCommonSubsequence } = Myers
@@ -81,14 +86,12 @@ function Card({ quote, open, handleQuote, deleteQuote }) {
               className="p-2 rounded-lg min-h-48 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
               onChange={handleInput}
               ref={originalRef}
-              /* value={quote?.original?.fullText ? quote.original.fullText : ''} */
             />
             <h3 className="text-$color-secondary text-center">Modified</h3>
             <textarea
               className="p-2 rounded-lg min-h-48 md:min-h-40 focus:outline-dotted-purple-400 outline-2 outline-offset-4 lg:text-lg"
               onChange={handleInput}
               ref={modifiedRef}
-              /* value={quote?.modified?.fullText ? quote.modified.fullText : ''} */
             />
           </div>
           {quote &&
@@ -127,19 +130,18 @@ function Card({ quote, open, handleQuote, deleteQuote }) {
               </div>
             )}
         </div>
-        {quote &&
-          quote.original._parts.length > 0 &&
-          quote.modified._parts.length > 0 && (
-            <div className="flex justify-end">
-              <button
-                type="button"
-                className="bg-purple-400 text-$color-primary rounded-lg px-4 py-2 font-semibold"
-                onClick={() => deleteQuote(quote)}
-              >
-                Delete
-              </button>
-            </div>
-          )}
+        {/* to prevent if a task with empty fullText has been saved */}
+        {quote && showDeleteButton && (
+          <div className="flex justify-end">
+            <button
+              type="button"
+              className="bg-purple-400 text-$color-primary rounded-lg px-4 py-2 font-semibold"
+              onClick={() => deleteQuote(quote)}
+            >
+              Delete
+            </button>
+          </div>
+        )}
       </details>
     </div>
   )

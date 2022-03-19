@@ -63,7 +63,14 @@ function App() {
 
     setQuotes((prevQuotes) => {
       prevQuotes.splice(index, 1)
-      localStorage.setItem('quotes', JSON.stringify(prevQuotes))
+
+      const quotesFromLocalStorage = localStorage.getItem('quotes')
+        ? localStorage.getItem('quotes')
+        : '[]'
+
+      const convertedQuotes = JSON.parse(quotesFromLocalStorage)
+      convertedQuotes.splice(index - 1, 1)
+      localStorage.setItem('quotes', JSON.stringify(convertedQuotes))
 
       const newQuotes = [...prevQuotes]
       return newQuotes

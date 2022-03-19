@@ -47,7 +47,12 @@ function App() {
       const newTasks = [...prevTasks]
       if (index === 0) {
         newTasks.unshift({ id: short.uuid(), ...defaultTask })
+
+        const tag = document.createElement('a')
+        tag.setAttribute('href', `#${task.id}`)
+        tag.click()
       }
+
       return newTasks
     })
   }
@@ -65,6 +70,7 @@ function App() {
             />
           ))}
         </div>
+        <div id="hola"> hola</div>
       </div>
     </div>
   )

@@ -57,7 +57,10 @@ function Card({ task, open, handleTask }) {
   const handleInput = _debounce(compareTexts, 500)
 
   return (
-    <div className="border border-dashed border-purple-400 p-4 pb-6 rounded-lg">
+    <div
+      id={task.id}
+      className="border border-dashed border-purple-400 p-4 pb-6 rounded-lg"
+    >
       <details open={open}>
         <summary
           className={`text-$color-primary rounded-lg p-4 bg-purple-300 overflow-ellipsis hover:cursor-pointer ${

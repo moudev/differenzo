@@ -58,19 +58,29 @@ function App() {
     })
   }
 
+  // only to remove quotes with index > 0
   const deleteQuote = (quote) => {
     const index = quotes.findIndex((element) => element.id === quote.id)
 
-    setQuotes((prevQuotes) => {
-      prevQuotes.splice(index, 1)
+    if (index === 0) return
 
+    setQuotes((prevQuotes) => {
+      prevQuotes.splice(index, 1) // remove from local state
+
+      // remove from localStorage. The length of the quote lists are different
       const quotesFromLocalStorage = localStorage.getItem('quotes')
         ? localStorage.getItem('quotes')
         : '[]'
 
-      const convertedQuotes = JSON.parse(quotesFromLocalStorage)
-      convertedQuotes.splice(index - 1, 1)
-      localStorage.setItem('quotes', JSON.stringify(convertedQuotes))
+      const convertedQuotesFromLocalStorage = JSON.parse(quotesFromLocalStorage)
+      // index - 1 because we want to remove the quote from localStorage
+      // and the index of the default added quote in useEffect doesn't count
+      // because it only be in the current state
+      convertedQuotesFromLocalStorage.splice(index - 1, 1)
+      localStorage.setItem(
+        'quotes',
+        JSON.stringify(convertedQuotesFromLocalStorage)
+      )
 
       const newQuotes = [...prevQuotes]
       return newQuotes

@@ -48,11 +48,24 @@ function App() {
       if (index === 0) {
         newTasks.unshift({ id: short.uuid(), ...defaultTask })
 
+        // scroll to recently created quote
         const tag = document.createElement('a')
         tag.setAttribute('href', `#${task.id}`)
         tag.click()
       }
 
+      return newTasks
+    })
+  }
+
+  const deleteQuote = (quote) => {
+    const index = tasks.findIndex((element) => element.id === quote.id)
+
+    setTasks((prevTasks) => {
+      prevTasks.splice(index, 1)
+      localStorage.setItem('quotes', JSON.stringify(prevTasks))
+
+      const newTasks = [...prevTasks]
       return newTasks
     })
   }
@@ -67,10 +80,10 @@ function App() {
               task={task}
               key={task.id}
               handleTask={handleTask}
+              deleteQuote={deleteQuote}
             />
           ))}
         </div>
-        <div id="hola"> hola</div>
       </div>
     </div>
   )

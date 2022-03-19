@@ -4,7 +4,7 @@ import React, { useRef } from 'react'
 import { Myers, Encoder } from '@moudev/myers-diff'
 import _debounce from 'lodash/debounce'
 
-function Card({ task, open, handleTask }) {
+function Card({ task, open, handleTask, deleteQuote }) {
   const originalRef = useRef()
   const modifiedRef = useRef()
   const encoder = new Encoder()
@@ -127,6 +127,19 @@ function Card({ task, open, handleTask }) {
               </div>
             )}
         </div>
+        {task &&
+          task.original._parts.length > 0 &&
+          task.modified._parts.length > 0 && (
+            <div className="flex justify-end">
+              <button
+                type="button"
+                className="bg-purple-400 text-$color-primary rounded-lg px-4 py-2 font-semibold"
+                onClick={() => deleteQuote(task)}
+              >
+                Delete
+              </button>
+            </div>
+          )}
       </details>
     </div>
   )

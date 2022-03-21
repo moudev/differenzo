@@ -1,6 +1,8 @@
 {
   "name": "differenzo",
+  "description": "Inspect, visualize, and save differences between texts ",
   "version": "0.0.1",
+  "author": "Mauricio Martínez <@moudev / @_codemart>",
   "scripts": {
     "dev": "vite",
     "build": "npm run build-myers && vite build",

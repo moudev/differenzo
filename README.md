@@ -2,6 +2,8 @@
 
 Inspect, visualize, and save differences between texts.
 
+Differenzo is a [Progressive Web App(PWA)](https://web.dev/what-are-pwas/). How to install it? [Follow this instructions](https://web.dev/learn/pwa/installation)
+
 ## Prerequisites
 
 - Install [`pnpm`](https://pnpm.io)

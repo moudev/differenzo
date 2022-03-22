@@ -2,7 +2,9 @@
 
 Inspect, visualize, and save differences between texts.
 
-Differenzo is a [Progressive Web App(PWA)](https://web.dev/what-are-pwas/). How to install it? [Follow this instructions](https://web.dev/learn/pwa/installation)
+Differenzo is a [Progressive Web App(PWA)](https://web.dev/what-are-pwas/). How to install it? [Follow this instructions](https://web.dev/learn/pwa/installation).
+
+This project is deployed with [netlify](https://www.netlify.com). The deployment process of a monorepo that uses [pnpm](https://pnpm.io) needs some configurations. Check the `netlify.toml` file for more information.
 
 ## Prerequisites
 

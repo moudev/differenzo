@@ -91,6 +91,14 @@ function App() {
     <div className="bg-$bg-primary text-$color-primary font-semibold min-h-screen">
       <div className="container mx-auto">
         <div className="px-6 py-8 grid gap-y-16 md:px-8 lg:py-12">
+          <a
+            className="text-$color-secondary"
+            href="https://github.com/moudev/differenzo"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Go to github repository
+          </a>
           {quotes.map((quote, index) => (
             <Card
               open={index === 0 || index === 1}

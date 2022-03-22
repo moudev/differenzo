@@ -1,58 +1,55 @@
-# Vite template
+# Differenzo
 
-- Vite
-- React.js
-- WindiCSS
-- ESLint
-- Prettier
-- Husky
-- Lint-staged
+Inspect, visualize, and save differences between texts.
 
 ## Prerequisites
 
-- [`yarn`](https://classic.yarnpkg.com/en/docs/install#windows-stable)
-- [`git`](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- Install [`pnpm`](https://pnpm.io)
 
 ## Project setup
 
-### Use the template
+The repository uses a modification of the [myers-diff](https://github.com/wickedest/myers-diff) project. The modified package is in `packages/myers-diff` directory. The project was modified to do the development mode easier and to export some classes.
+
+### 1- Install dependencies
+
+This step will configure the local `myers-diff` package using [pnpm-workspaces](https://pnpm.io/workspaces).
 
 ```bash
-npx degit moudev/vite-react-windi-eslint-husky my-app
-
-cd my-app
+pnpm install
 ```
 
-### Install dependencies
-
-```bash
-yarn install
-```
-
-### Config Git hooks (required)
+### 2- Config Git hooks (required)
 
 ```bash
 git init
 ```
 
 ```bash
-yarn prepare
+pnpm run prepare
 ```
 
 ### Development
 
+This step will execute the `dev` script in the root of the project and in each package of the `packages/` directory at the same time.
+
+If the `myers-diff` package is modified, then the command will do the build process of the package and the modification will be available to use in the UI project.
+
+If the `myers-diff` will not be modified, then remove the `--parallel` parameter.
+
 ```bash
-yarn dev
+pnpm run dev --parallel
 ```
 
 ### Build
 
+Do the buid process using [pnpm-workspaces](https://pnpm.io/workspaces).
+
 ```bash
-yarn build
+pnpm run build
 ```
 
 ### Lints and fixes files
 
 ```bash
-yarn lint
+pnpm run lint
 ```

@@ -21,10 +21,6 @@ pnpm install
 ### 2- Config Git hooks (required)
 
 ```bash
-git init
-```
-
-```bash
 pnpm run prepare
 ```
 
